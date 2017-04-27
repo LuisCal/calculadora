@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+    padding: 0;
+background-color: black;
+}
+.escribe{
+	background-color: grey;
+	padding: 8px;
+	margin: 0px; 
+	width: 392px; 
+	height: 321px;
+}

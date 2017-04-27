@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<script>
+	function operacion(concatenar){
+	var poner = concatenar;
+	var cambiar = document.getElementById("screen").value;
+	if(cambiar=="0"){
+		cambiar = poner;
+		document.getElementById("screen").value	 = cambiar;
+	}
+	else{
+	cambiar = cambiar + poner;
+	document.getElementById("screen").value	 = cambiar;
+		}
+	}
+
+	function realizar(){
+		var op = document.getElementById("screen").value;
+		var resultado = eval(op);
+		document.getElementById("screen").value = resultado;
+	}
+
+	function limpiar(){
+		 document.getElementById("screen").value = 0;
+	}
+	function cambio(){
+		var sig = document.getElementById("screen").value;
+		sig = eval(-1*(sig));
+		document.getElementById("screen").value = sig;	
+	}
+	function bond(){
+		var james = document.getElementById("screen").value;
+		if(james==".007"){
+			document.getElementById("audio").play();
+			setTimeout(function(){stopAudio()},5000);
+			setTimeout(function(){redirigir()},5000);
+			
+		}
+	function stopAudio(){
+		document.getElementById("audio").stop();
+	}
+	function redirigir(){
+		window.location.assign('secreto.html');
+	}
+	}
+
+
+</script>
+<body>
+<input class="op" id="screen" type="text" name="operacion" value="0">
+
+<button class="fila_uno columna1" onclick="cambio()">+-</button>
+<button class="fila_uno columna2" onclick="operacion('(')">(</button>
+<button class="fila_uno columna3" onclick="operacion(')')">)</button>
+<button class="fila_uno columna4" onclick="bond()">*</button>
+
+<button class="fila_dos columna1" onclick="operacion(7)">7</button>
+<button class="fila_dos columna2" onclick="operacion(8)">8</button>
+<button class="fila_dos columna3" onclick="operacion(9)">9</button>
+<button class="fila_dos columna4 operaciones" onclick="operacion('/')">/</button>
+
+<button class="fila_tres columna1" onclick="operacion(4)">4</button>
+<button class="fila_tres columna2" onclick="operacion(5)">5</button>
+<button class="fila_tres columna3" onclick="operacion(6)">6</button>
+<button class="fila_tres columna4 operaciones" onclick="operacion('*')">X</button>
+
+<button class="fila_cuatro columna1" onclick="operacion(1)">1</button>
+<button class="fila_cuatro columna2" onclick="operacion(2)">2</button>
+<button class="fila_cuatro columna3" onclick="operacion(3)">3</button>
+<button class="fila_cuatro columna4 operaciones" onclick="operacion('-')">-</button>
+
+<button class="fila_cinco columna1" onclick="operacion(0)">0</button>
+<button class="fila_cinco columna2" onclick="operacion('.')">.</button>
+<button class="fila_cinco columna3" onclick="operacion('%')">%</button>
+<button class="fila_cinco columna4 sumar" onclick="operacion('+')">+</button>
+
+<button class="fila_seis columna1 c" onclick="limpiar()">C</button>
+<button class="fila_seis columna2 igual" onclick="realizar()">=</button>
+<audio id="audio">
+  <source src="james.mp3" type="audio/mpeg" >
+</audio>
+</body>
+</html>
